@@ -1,30 +1,64 @@
-# React + TypeScript + Vite
+# Random Quotes Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
+    <img src="https://cdn-icons-png.flaticon.com/512/189/189665.png" alt="Light Bulb Icon" width="80" height="80">
+    <h2>Random Quotes Generator</h2>
+    <p>Get inspired with a click! 🌟</p>
+</div>
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Before running this project, make sure you have Node.js installed on your system, which will include npm. You can download it from [nodejs.org](https://nodejs.org/).
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Clone the repository and install dependencies:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+git clone https://github.com/RCThales/random_quotes_generator/.git
+cd random-quotes-generator
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Running the Application
+
+To start the development server, run:
+
+```bash
+npm run dev
+```
+
+This will start the Vite server, typically available at `http://localhost:3000`.
+
+## Working DEMO  
+
+*SOON*
+
+## A Sneak Peek
+
+*SOON*
+
+## Usage
+
+Interact with the web application to get a new random quote with each button click. Explore various quotes and enjoy the inspiration!
+
+## Certification
+
+This project is part of the FreeCodeCamp Front End Development Libraries Certification. Learn more about the certification [here](https://www.freecodecamp.org/learn/front-end-development-libraries).
+
+## Contributing
+
+Contributions to the Random Quotes Generator are welcome! If you'd like to contribute, please follow these steps:
+
+- Fork the repository.
+- Create a new branch for your feature.
+- Make your changes and commit them.
+- Submit a pull request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+Enjoy using the Random Quotes Generator and stay inspired! ✨
