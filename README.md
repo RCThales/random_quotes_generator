@@ -32,7 +32,7 @@ This will start the Vite server, typically available at `http://localhost:3000`.
 
 ## Working DEMO  
 
-*SOON*
+*[CLICK ME](https://randomquotegenerator-fcc.netlify.app)*
 
 ## A Sneak Peek
 
