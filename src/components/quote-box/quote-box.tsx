@@ -18,10 +18,11 @@ const QuoteBox = () => {
     queryKey: ["quotes"],
     queryFn: () =>
       axios
-        .get(
-          `https://quote-garden.onrender.com/api/v3/quotes/random?genre=${activeGenre}`
-        )
-        .then((res) => res.data.data[0]),
+        .get(`https://api.quotable.io/random?tags=${activeGenre}`)
+        .then((res) => {
+          console.log("quotes", res.data);
+          return res.data;
+        }),
   });
 
   const handleRefetch = () => {
@@ -32,9 +33,9 @@ const QuoteBox = () => {
     queryKey: ["genres"],
     staleTime: Infinity,
     queryFn: () =>
-      axios
-        .get(`https://quote-garden.onrender.com/api/v3/genres`)
-        .then((res) => res.data.data),
+      axios.get(`https://api.quotable.io/tags`).then((res) => {
+        return res.data;
+      }),
   });
 
   useEffect(() => {
@@ -48,9 +49,7 @@ const QuoteBox = () => {
 
   const fetchBackgroundImage = async () => {
     try {
-      const response = await axios.get(
-        "https://source.unsplash.com/random/600x400"
-      );
+      const response = await axios.get("https://loremflickr.com/600/400");
       setBackgroundImageUrl(response.request.responseURL);
       console.log(response.request.responseURL);
     } catch (error) {
@@ -61,6 +60,7 @@ const QuoteBox = () => {
   const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
     `"${quotes?.quoteText}" - ${quotes?.quoteAuthor}`
   )}`;
+
   return (
     <>
       <div
@@ -87,10 +87,10 @@ const QuoteBox = () => {
             ) : (
               <div id="quote-wrapper" className={styles.quote_wrapper}>
                 <q id="text" className={styles.quote_text}>
-                  {quotes?.quoteText}
+                  {quotes?.content}
                 </q>
                 <p id="author" className={styles.quote_author}>
-                  {quotes?.quoteAuthor}
+                  {quotes?.author}
                 </p>
               </div>
             )}
@@ -105,9 +105,12 @@ const QuoteBox = () => {
                 <FontAwesomeIcon icon={faTwitter} />
               </a>
               <select onChange={chooseGenre}>
-                {genres?.map((genre: string, index: number) => (
-                  <option key={`quotes_${index}`}>{genre}</option>
-                ))}
+                {genres?.map(
+                  (genre: any, index: number) =>
+                    genre.quoteCount > 0 && (
+                      <option key={`quotes_${index}`}>{genre.name}</option>
+                    )
+                )}
               </select>
               <button
                 onClick={handleRefetch}
