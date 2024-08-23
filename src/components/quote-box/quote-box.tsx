@@ -20,7 +20,6 @@ const QuoteBox = () => {
       axios
         .get(`https://api.quotable.io/random?tags=${activeGenre}`)
         .then((res) => {
-          console.log("quotes", res.data);
           return res.data;
         }),
   });
@@ -51,7 +50,6 @@ const QuoteBox = () => {
     try {
       const response = await axios.get("https://loremflickr.com/600/400");
       setBackgroundImageUrl(response.request.responseURL);
-      console.log(response.request.responseURL);
     } catch (error) {
       console.error("Error fetching background image:", error);
     }
